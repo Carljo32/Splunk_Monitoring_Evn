@@ -119,14 +119,20 @@ Used SPL to:
   ```spl
   source="windows_server_logs.csv" user="*" | timechart count by user
   ```
+  <img width="642" alt="image" src="https://github.com/user-attachments/assets/ff38deed-1d76-48ef-b260-a401a58d5c28" />
+
 - Signature counts:
   ```spl
-  source="windows_server_logs.csv" signature="*" | stats count by signature
+  source="windows_server_attack_logs.csv" signature="*" | stats count by signature
   ```
+  <img width="646" alt="image" src="https://github.com/user-attachments/assets/a23635d6-e5db-4555-bc66-daa36319029d" />
+
 - HTTP method timechart:
   ```spl
   source="apache_logs.txt" method="*" | timechart span=1hr count as HTTP_Methods
   ```
+  <img width="1679" alt="image" src="https://github.com/user-attachments/assets/c2a74366-9782-43d0-92be-f993ff21721b" />
+
 
 ### 6. Threshold Tuning
 - Business-hour based alerts
