@@ -1,5 +1,6 @@
 # Splunk Monitoring Environment 
-##### UCI's Cybersecurity Boot Camp Project # 3: Building a Splunk Monitoring Environment 
+##### UCI's Cybersecurity Boot Camp Project # 3: Building a Splunk Monitoring Environment
+Access to project deliverable: Google Doc <https://docs.google.com/presentation/d/126MWW7FZ0Y4QnIX8CaVO_7Fv5AIZq86ygWENP0Joo8Y/edit?usp=sharing
 
 ## Objective Summary
 This project focused on building a custom security monitoring environment using Splunk to detect, analyze, and respond to potential cyber threats. It involved configuring log sources, analyzing security events, and refining alerting thresholds to enhance detection accuracy. Simulated attacks were conducted to validate threat detection capabilities, ensuring a proactive approach to cybersecurity monitoring and incident response.
