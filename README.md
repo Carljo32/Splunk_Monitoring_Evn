@@ -65,36 +65,48 @@ Used SPL to:
   ```
   <img width="1690" alt="image" src="https://github.com/user-attachments/assets/66f8d91e-780a-4f6f-836e-57b610dcbe6a" />
 
-- Apache method breakdown:
+- HTTP method breakdown:
   ```spl
   source="apache_logs.txt" method="*" | stats count by method | eventstats sum(count) as total_count | eval percentage=(count/total_count)*100 | table method, count, percentage | sort -count
   ```
+  <img width="1694" alt="image" src="https://github.com/user-attachments/assets/e6a61b25-af45-4716-8ad5-b498cfa116b5" />
+
 - Apache HTTP status analysis:
   ```spl
   source="apache_logs.txt" status="*" | stats count by status | sort -count
   ```
+  <img width="1694" alt="image" src="https://github.com/user-attachments/assets/dd0fd8d7-e124-404e-9bfd-b4fe1468428f" />
 
 ### 3. Alert Development
 - Brute force detection:
   ```spl
   source="windows_server_logs.csv" status="failure" | timechart span=1h count as Failed_Activity
   ```
+  <img width="722" alt="image" src="https://github.com/user-attachments/assets/4756af44-781f-4bf3-b813-8d5237ad0b13" />
+
 - Average/stdev analysis:
   ```spl
   source="windows_server_logs.csv" status="failure" | bin _time span=1h | stats count as failures by _time | stats avg(failures) as avg_failures, stdev(failures) as stdev_failures
   ```
+  <img width="728" alt="image" src="https://github.com/user-attachments/assets/131e71bc-5ae9-4655-ba43-9298cfac20ec" />
+
 - Hourly success tracking:
   ```spl
   source="windows_server_logs.csv" signature_id=4624
   ```
+  <img width="639" alt="image" src="https://github.com/user-attachments/assets/1dc193b2-1f96-419f-abba-87d6c9722207" />
+
 - Non-US login attempts:
   ```spl
   source="apache_logs.txt" | iplocation clientip | where Country!="United States"
   ```
+  <img width="1653" alt="image" src="https://github.com/user-attachments/assets/3e037ab7-c5cd-4d21-81e2-9ee63e2fe173" />
+
 - POST request alerts:
   ```spl
   source="apache_logs.txt" method=POST
   ```
+  <img width="1674" alt="image" src="https://github.com/user-attachments/assets/ab80c19d-9bb9-41e6-bffb-6f1ba3b76c00" />
 
 ### 4. Analyze Attack Logs
 - Uploaded & analyzed spikes in:
